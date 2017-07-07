@@ -3,6 +3,7 @@ class Movie < ActiveRecord::Base
     %w(G PG PG-13 NC-17 R)
   end
   
-  def self.search_movies_by_director(id)
+  def self.search_movies_by_director(director)
+    Movie.find_by_director(director)
   end
 end
