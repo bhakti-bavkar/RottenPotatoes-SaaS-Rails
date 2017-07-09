@@ -16,6 +16,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.4.0'
   gem 'ZenTest', '4.11.0'
   gem "factory_girl_rails", "~> 4.0"
+  gem 'simplecov', :require => false
 end
 
 group :test do
