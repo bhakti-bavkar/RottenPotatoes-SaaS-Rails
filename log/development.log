@@ -1388,3 +1388,4 @@ Processing by MoviesController#index as HTML
   [1m[36mMovie Load (0.4ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
   Rendered movies/index.html.haml within layouts/application (5.2ms)
 Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m

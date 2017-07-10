@@ -17,6 +17,8 @@ module NavigationHelpers
       movies_path 
     when /^the RottenPotatoes home\s?page$/
       movies_path
+    when /^the create new movie page$/
+      new_movie_path
     when /^the edit page for "(.*)"$/
       edit_movie_path(Movie.find_by_title($1))
     when /^the details page for "(.*)"$/

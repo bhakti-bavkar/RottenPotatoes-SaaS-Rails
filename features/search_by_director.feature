@@ -32,3 +32,31 @@ Scenario: can't find similar movies if we don't know director (sad path)
   When  I follow "Find Movies With Same Director"
   Then  I should be on the home page
   And   I should see "'Alien' has no director info"
+  
+Scenario: sort movies alphabetically
+  Given I am on the RottenPotatoes home page
+  When I follow "Movie Title"
+  Then I should see "Alien" before "Blade Runner"
+  
+Scenario: Filter out movies with 'PG' or 'R' ratings
+  Given I am on the RottenPotatoes home page
+  When I check the following ratings: PG,R 
+  And I uncheck the following ratings: G,PG-13,NC-17
+  And I press "Refresh"
+  Then I should see movies with checked ratings
+  But I should not see movies with unchecked ratings
+  
+Scenario: Create new movie
+  Given I am on the RottenPotatoes home page
+  And I follow "Add new movie"
+  Then I should be on the create new movie page
+  And I fill new movie details for "Independance Day"
+  And I press "Save Changes"
+  Then I should see "Independance Day was successfully created."
+  
+Scenario: Delete existing movie
+  Given I am on the details page for "Alien"
+  And I press "Delete"
+  Then I should see "Movie 'Alien' deleted." 
+  
+

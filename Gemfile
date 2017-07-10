@@ -12,16 +12,17 @@ group :development, :test do
   gem 'database_cleaner', '1.4.1'
   gem 'capybara', '2.4.4'
   gem 'launchy'
-  gem 'rspec', '~> 3.4.0'
-  gem 'rspec-rails', '~> 3.4.0'
+#  gem 'rspec', '~> 3.4.0'
+#  gem 'rspec-rails', '~> 3.4.0'
+  gem 'rspec-rails', '3.3.2'
   gem 'ZenTest', '4.11.0'
   gem "factory_girl_rails", "~> 4.0"
-  gem 'simplecov', :require => false
 end
 
 group :test do
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
+  gem 'simplecov', :require => false
 end
 group :production do
   gem 'pg'
