@@ -1389,3 +1389,426 @@ Processing by MoviesController#index as HTML
   Rendered movies/index.html.haml within layouts/application (5.2ms)
 Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.4ms)
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 73.239.192.5 at 2017-07-11 19:20:35 +0000
+
+
+Started GET "/movies" for 73.239.192.5 at 2017-07-11 19:20:36 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://my-workspace-bhaktibavkar.c9users.io/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1
+Completed 302 Found in 79816ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1" for 73.239.192.5 at 2017-07-11 19:21:56 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}}
+  [1m[36mMovie Load (0.4ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (57.0ms)
+Completed 200 OK in 7104ms (Views: 406.5ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/application.self-2b9b4ceb35a4568bfbe3001eb6cf7d691787c8ec9b2018eecbc3c235cc74b7a4.css?body=1" for 73.239.192.5 at 2017-07-11 19:22:03 +0000
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 73.239.192.5 at 2017-07-11 19:22:04 +0000
+
+
+Started GET "/assets/application.self-ac4347b135ab8935f2dd20089f2acc8bec1d6b2ad528a80fcb03cd445dbd4d27.js?body=1" for 73.239.192.5 at 2017-07-11 19:22:04 +0000
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 73.239.192.5 at 2017-07-11 19:22:04 +0000
+
+
+Started GET "/movies?ratings%5B%5D=G&ratings%5B%5D=NC-17&ratings%5B%5D=PG&ratings%5B%5D=PG-13&ratings%5B%5D=R&sort=title" for 73.239.192.5 at 2017-07-11 19:22:12 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>["G", "NC-17", "PG", "PG-13", "R"], "sort"=>"title"}
+
+
+Started GET "/" for 73.239.192.5 at 2017-07-11 19:33:18 +0000
+
+
+Started GET "/movies" for 73.239.192.5 at 2017-07-11 19:33:19 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://my-workspace-bhaktibavkar.c9users.io/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1
+Completed 302 Found in 181ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1" for 73.239.192.5 at 2017-07-11 19:33:19 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}}
+  [1m[36mMovie Load (0.5ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (63.4ms)
+Completed 200 OK in 500ms (Views: 490.2ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&commit=Refresh" for 73.239.192.5 at 2017-07-11 19:33:27 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"PG"=>"1", "PG-13"=>"1"}, "commit"=>"Refresh"}
+  [1m[35mMovie Load (0.4ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('PG', 'PG-13')
+  Rendered movies/index.html.haml within layouts/application (4.1ms)
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies?column=release_date" for 73.239.192.5 at 2017-07-11 19:33:29 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"column"=>"release_date"}
+  [1m[36mMovie Load (0.4ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('PG', 'PG-13')  ORDER BY release_date[0m
+  Rendered movies/index.html.haml within layouts/application (3.4ms)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&commit=Refresh" for 73.239.192.5 at 2017-07-11 19:33:34 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "commit"=>"Refresh"}
+  [1m[35mMovie Load (0.4ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('PG', 'PG-13', 'R')
+  Rendered movies/index.html.haml within layouts/application (4.0ms)
+Completed 200 OK in 23ms (Views: 20.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&ratings%5BNC-17%5D=1&commit=Refresh" for 73.239.192.5 at 2017-07-11 19:33:41 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1", "NC-17"=>"1"}, "commit"=>"Refresh"}
+  [1m[36mMovie Load (0.6ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'R', 'NC-17')[0m
+  Rendered movies/index.html.haml within layouts/application (6.7ms)
+Completed 200 OK in 29ms (Views: 27.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BG%5D=1&commit=Refresh" for 73.239.192.5 at 2017-07-11 19:33:49 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"G"=>"1"}, "commit"=>"Refresh"}
+  [1m[35mMovie Load (0.5ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" = 'G'
+  Rendered movies/index.html.haml within layouts/application (5.4ms)
+Completed 200 OK in 26ms (Views: 23.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movies/1" for 73.239.192.5 at 2017-07-11 19:33:56 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.5ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered movies/show.html.haml within layouts/application (5.4ms)
+Completed 200 OK in 32ms (Views: 20.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movies/1/edit" for 73.239.192.5 at 2017-07-11 19:34:02 +0000
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered movies/edit.html.haml within layouts/application (23.3ms)
+Completed 200 OK in 42ms (Views: 39.7ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/movies/1" for 73.239.192.5 at 2017-07-11 19:34:05 +0000
+Processing by MoviesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3coLFPGTo3Dsu9/y3UQgrWkkmeA+8+VuwbjIAldY8TQq9K9rCwQkyrlbXKCLG8Nn3J/ypr+SzxA0AbRtdM8hUw==", "movie"=>{"title"=>"Aliens", "rating"=>"G", "release_date(1i)"=>"2017", "release_date(2i)"=>"7", "release_date(3i)"=>"7", "director"=>"Ridley Scott"}, "commit"=>"Update Movie Info", "id"=>"1"}
+  [1m[36mMovie Load (0.4ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+Redirected to https://my-workspace-bhaktibavkar.c9users.io/movies/1
+Completed 302 Found in 8ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/movies/1" for 73.239.192.5 at 2017-07-11 19:34:05 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.3ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered movies/show.html.haml within layouts/application (2.2ms)
+Completed 200 OK in 22ms (Views: 19.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies" for 73.239.192.5 at 2017-07-11 19:34:07 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://my-workspace-bhaktibavkar.c9users.io/movies?column=release_date&ratings%5BG%5D=1
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?column=release_date&ratings%5BG%5D=1" for 73.239.192.5 at 2017-07-11 19:34:07 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"column"=>"release_date", "ratings"=>{"G"=>"1"}}
+  [1m[36mMovie Load (0.6ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" = 'G'  ORDER BY release_date[0m
+  Rendered movies/index.html.haml within layouts/application (7.8ms)
+Completed 200 OK in 71ms (Views: 68.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/movies/1" for 73.239.192.5 at 2017-07-11 19:34:12 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered movies/show.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies/1/search" for 73.239.192.5 at 2017-07-11 19:34:15 +0000
+Processing by MoviesController#search as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMovie Load (0.6ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."director" = ?  [["director", "Ridley Scott"]]
+  Rendered movies/search.html.haml within layouts/application (9.0ms)
+Completed 200 OK in 121ms (Views: 117.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/movies/1" for 73.239.192.5 at 2017-07-11 19:34:22 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered movies/show.html.haml within layouts/application (1.9ms)
+Completed 200 OK in 79ms (Views: 76.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies" for 73.239.192.5 at 2017-07-11 19:34:25 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://my-workspace-bhaktibavkar.c9users.io/movies?column=release_date&ratings%5BG%5D=1
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?column=release_date&ratings%5BG%5D=1" for 73.239.192.5 at 2017-07-11 19:34:25 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"column"=>"release_date", "ratings"=>{"G"=>"1"}}
+  [1m[35mMovie Load (0.6ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" = 'G'  ORDER BY release_date
+  Rendered movies/index.html.haml within layouts/application (8.2ms)
+Completed 200 OK in 28ms (Views: 26.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/movies/4" for 73.239.192.5 at 2017-07-11 19:34:30 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered movies/show.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies/4/search" for 73.239.192.5 at 2017-07-11 19:34:34 +0000
+Processing by MoviesController#search as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mMovie Load (0.3ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 4]]
+Redirected to https://my-workspace-bhaktibavkar.c9users.io/movies
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/movies" for 73.239.192.5 at 2017-07-11 19:34:34 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://my-workspace-bhaktibavkar.c9users.io/movies?column=release_date&ratings%5BG%5D=1
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?column=release_date&ratings%5BG%5D=1" for 73.239.192.5 at 2017-07-11 19:34:34 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"column"=>"release_date", "ratings"=>{"G"=>"1"}}
+  [1m[36mMovie Load (0.5ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" = 'G'  ORDER BY release_date[0m
+  Rendered movies/index.html.haml within layouts/application (4.9ms)
+Completed 200 OK in 20ms (Views: 18.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BPG-13%5D=1&commit=Refresh" for 73.239.192.5 at 2017-07-11 19:57:31 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"PG-13"=>"1"}, "commit"=>"Refresh"}
+  [1m[35mMovie Load (0.7ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" = 'PG-13'
+  Rendered movies/index.html.haml within layouts/application (5.6ms)
+Completed 200 OK in 41ms (Views: 37.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&commit=Refresh" for 73.239.192.5 at 2017-07-11 19:57:38 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "commit"=>"Refresh"}
+Redirected to https://my-workspace-bhaktibavkar.c9users.io/movies?column=release_date&ratings%5BPG-13%5D=1
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?column=release_date&ratings%5BPG-13%5D=1" for 73.239.192.5 at 2017-07-11 19:57:38 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"column"=>"release_date", "ratings"=>{"PG-13"=>"1"}}
+  [1m[36mMovie Load (0.5ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" = 'PG-13'  ORDER BY release_date[0m
+  Rendered movies/index.html.haml within layouts/application (4.7ms)
+Completed 200 OK in 25ms (Views: 23.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BG%5D=1&ratings%5BPG-13%5D=1&commit=Refresh" for 73.239.192.5 at 2017-07-11 19:57:43 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"G"=>"1", "PG-13"=>"1"}, "commit"=>"Refresh"}
+  [1m[35mMovie Load (1.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG-13')
+  Rendered movies/index.html.haml within layouts/application (9.7ms)
+Completed 200 OK in 43ms (Views: 39.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BG%5D=1&commit=Refresh" for 73.239.192.5 at 2017-07-11 19:57:45 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"G"=>"1"}, "commit"=>"Refresh"}
+  [1m[36mMovie Load (0.7ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" = 'G'[0m
+  Rendered movies/index.html.haml within layouts/application (21.1ms)
+Completed 200 OK in 45ms (Views: 43.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&commit=Refresh" for 73.239.192.5 at 2017-07-11 19:57:48 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "commit"=>"Refresh"}
+Redirected to https://my-workspace-bhaktibavkar.c9users.io/movies?column=release_date&ratings%5BG%5D=1
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?column=release_date&ratings%5BG%5D=1" for 73.239.192.5 at 2017-07-11 19:57:48 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"column"=>"release_date", "ratings"=>{"G"=>"1"}}
+  [1m[35mMovie Load (0.4ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" = 'G'  ORDER BY release_date
+  Rendered movies/index.html.haml within layouts/application (5.7ms)
+Completed 200 OK in 31ms (Views: 29.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BPG-13%5D=1&commit=Refresh" for 73.239.192.5 at 2017-07-11 19:57:56 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"PG-13"=>"1"}, "commit"=>"Refresh"}
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" = 'PG-13'[0m
+  Rendered movies/index.html.haml within layouts/application (4.4ms)
+Completed 200 OK in 34ms (Views: 32.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&commit=Refresh" for 73.239.192.5 at 2017-07-11 19:58:08 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "commit"=>"Refresh"}
+Redirected to https://my-workspace-bhaktibavkar.c9users.io/movies?column=release_date&ratings%5BPG-13%5D=1
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?column=release_date&ratings%5BPG-13%5D=1" for 73.239.192.5 at 2017-07-11 19:58:08 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"column"=>"release_date", "ratings"=>{"PG-13"=>"1"}}
+  [1m[35mMovie Load (0.5ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" = 'PG-13'  ORDER BY release_date
+  Rendered movies/index.html.haml within layouts/application (6.0ms)
+Completed 200 OK in 41ms (Views: 38.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&commit=Refresh" for 73.239.192.5 at 2017-07-11 19:58:19 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "commit"=>"Refresh"}
+Redirected to https://my-workspace-bhaktibavkar.c9users.io/movies?column=release_date&ratings%5BPG-13%5D=1
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?column=release_date&ratings%5BPG-13%5D=1" for 73.239.192.5 at 2017-07-11 19:58:19 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"column"=>"release_date", "ratings"=>{"PG-13"=>"1"}}
+  [1m[36mMovie Load (0.5ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" = 'PG-13'  ORDER BY release_date[0m
+  Rendered movies/index.html.haml within layouts/application (8.1ms)
+Completed 200 OK in 39ms (Views: 36.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BPG-13%5D=1&ratings%5BNC-17%5D=1&commit=Refresh" for 73.239.192.5 at 2017-07-11 19:58:23 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"PG-13"=>"1", "NC-17"=>"1"}, "commit"=>"Refresh"}
+  [1m[35mMovie Load (0.5ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('PG-13', 'NC-17')
+  Rendered movies/index.html.haml within layouts/application (7.8ms)
+Completed 200 OK in 34ms (Views: 32.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&commit=Refresh" for 73.239.192.5 at 2017-07-11 19:58:27 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "commit"=>"Refresh"}
+Redirected to https://my-workspace-bhaktibavkar.c9users.io/movies?column=release_date&ratings%5BNC-17%5D=1&ratings%5BPG-13%5D=1
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?column=release_date&ratings%5BNC-17%5D=1&ratings%5BPG-13%5D=1" for 73.239.192.5 at 2017-07-11 19:58:27 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"column"=>"release_date", "ratings"=>{"NC-17"=>"1", "PG-13"=>"1"}}
+  [1m[36mMovie Load (0.5ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('NC-17', 'PG-13')  ORDER BY release_date[0m
+  Rendered movies/index.html.haml within layouts/application (5.3ms)
+Completed 200 OK in 28ms (Views: 26.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&commit=Refresh" for 73.239.192.5 at 2017-07-11 19:58:32 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "commit"=>"Refresh"}
+Redirected to https://my-workspace-bhaktibavkar.c9users.io/movies?column=release_date&ratings%5BNC-17%5D=1&ratings%5BPG-13%5D=1
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?column=release_date&ratings%5BNC-17%5D=1&ratings%5BPG-13%5D=1" for 73.239.192.5 at 2017-07-11 19:58:32 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"column"=>"release_date", "ratings"=>{"NC-17"=>"1", "PG-13"=>"1"}}
+  [1m[35mMovie Load (0.5ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('NC-17', 'PG-13')  ORDER BY release_date
+  Rendered movies/index.html.haml within layouts/application (4.1ms)
+Completed 200 OK in 102ms (Views: 35.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&commit=Refresh" for 73.239.192.5 at 2017-07-11 19:58:37 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "commit"=>"Refresh"}
+Redirected to https://my-workspace-bhaktibavkar.c9users.io/movies?column=release_date&ratings%5BNC-17%5D=1&ratings%5BPG-13%5D=1
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?column=release_date&ratings%5BNC-17%5D=1&ratings%5BPG-13%5D=1" for 73.239.192.5 at 2017-07-11 19:58:37 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"column"=>"release_date", "ratings"=>{"NC-17"=>"1", "PG-13"=>"1"}}
+  [1m[36mMovie Load (0.5ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('NC-17', 'PG-13')  ORDER BY release_date[0m
+  Rendered movies/index.html.haml within layouts/application (5.2ms)
+Completed 200 OK in 25ms (Views: 23.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BPG-13%5D=1&commit=Refresh" for 73.239.192.5 at 2017-07-11 19:58:40 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"PG-13"=>"1"}, "commit"=>"Refresh"}
+  [1m[35mMovie Load (0.4ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" = 'PG-13'
+  Rendered movies/index.html.haml within layouts/application (4.4ms)
+Completed 200 OK in 26ms (Views: 24.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&commit=Refresh" for 73.239.192.5 at 2017-07-11 19:59:20 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "commit"=>"Refresh"}
+Redirected to https://my-workspace-bhaktibavkar.c9users.io/movies?column=release_date&ratings%5BPG-13%5D=1
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?column=release_date&ratings%5BPG-13%5D=1" for 73.239.192.5 at 2017-07-11 19:59:20 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"column"=>"release_date", "ratings"=>{"PG-13"=>"1"}}
+  [1m[36mMovie Load (0.5ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" = 'PG-13'  ORDER BY release_date[0m
+  Rendered movies/index.html.haml within layouts/application (4.9ms)
+Completed 200 OK in 29ms (Views: 27.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BR%5D=1&commit=Refresh" for 73.239.192.5 at 2017-07-11 19:59:57 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"R"=>"1"}, "commit"=>"Refresh"}
+  [1m[35mMovie Load (0.5ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" = 'R'
+  Rendered movies/index.html.haml within layouts/application (4.5ms)
+Completed 200 OK in 23ms (Views: 20.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&ratings%5BNC-17%5D=1&commit=Refresh" for 73.239.192.5 at 2017-07-11 20:02:22 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1", "NC-17"=>"1"}, "commit"=>"Refresh"}
+  [1m[36mMovie Load (0.4ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'R', 'NC-17')  ORDER BY release_date[0m
+  Rendered movies/index.html.haml within layouts/application (89.9ms)
+Completed 200 OK in 133ms (Views: 125.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&ratings%5BNC-17%5D=1&commit=Refresh" for 73.239.192.5 at 2017-07-11 20:02:32 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"PG-13"=>"1", "R"=>"1", "NC-17"=>"1"}, "commit"=>"Refresh"}
+  [1m[35mMovie Load (0.6ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('PG-13', 'R', 'NC-17')  ORDER BY release_date
+  Rendered movies/index.html.haml within layouts/application (5.1ms)
+Completed 200 OK in 92ms (Views: 89.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BPG-13%5D=1&commit=Refresh" for 73.239.192.5 at 2017-07-11 20:02:37 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"PG-13"=>"1"}, "commit"=>"Refresh"}
+  [1m[36mMovie Load (0.4ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" = 'PG-13'  ORDER BY release_date[0m
+  Rendered movies/index.html.haml within layouts/application (4.0ms)
+Completed 200 OK in 25ms (Views: 23.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&commit=Refresh" for 73.239.192.5 at 2017-07-11 20:02:41 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "commit"=>"Refresh"}
+Redirected to https://my-workspace-bhaktibavkar.c9users.io/movies?column=release_date&ratings%5BPG-13%5D=1
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?column=release_date&ratings%5BPG-13%5D=1" for 73.239.192.5 at 2017-07-11 20:02:41 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"column"=>"release_date", "ratings"=>{"PG-13"=>"1"}}
+  [1m[35mMovie Load (0.5ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" = 'PG-13'  ORDER BY release_date
+  Rendered movies/index.html.haml within layouts/application (3.8ms)
+Completed 200 OK in 22ms (Views: 20.2ms | ActiveRecord: 0.5ms)

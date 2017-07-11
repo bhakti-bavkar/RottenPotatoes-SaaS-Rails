@@ -1,5 +1,8 @@
 class MoviesController < ApplicationController
   
+  before_action :get_settings
+  after_action :set_settings
+  
   def movie_params
     params.require(:movie).permit(:title, :rating, :description, :release_date, :director)
   end
@@ -20,27 +23,20 @@ class MoviesController < ApplicationController
   end
 
   def index
-    sort = params[:sort] || session[:sort]
-    case sort
-    when 'title'
-      ordering,@title_header = {:title => :asc}, 'hilite'
-    when 'release_date'
-      ordering,@date_header = {:release_date => :asc}, 'hilite'
+    if params[:column].nil? and params[:ratings].nil?
+      params[:column] = session[:sort]
+      params[:ratings] = session[:filter]
+      flash.keep
+      redirect_to movies_path(:ratings => params[:ratings],:column => params[:column])
     end
     @all_ratings = Movie.all_ratings
-    @selected_ratings = params[:ratings] || session[:ratings] || {}
-    
-    if @selected_ratings == {}
-      @selected_ratings = Hash[@all_ratings.map {|rating| [rating, rating]}]
-    end
-    
-    if params[:sort] != session[:sort] or params[:ratings] != session[:ratings]
-      session[:sort] = sort
-      session[:ratings] = @selected_ratings
-      redirect_to :sort => sort, :ratings => @selected_ratings and return
-    end
-    @movies = Movie.where(rating: @selected_ratings.keys).order(ordering)
-  end
+    params[:ratings] = session[:filter] if params[:ratings].nil? #all filters are uncehecked
+    params[:column] = session[:sort] if params[:column].nil?
+    @selected_ratings = params[:ratings].keys
+    @title_header = 'hilite' if params[:column] == 'title'
+    @release_date_header = 'hilite' if params[:column] == 'release_date'
+    @movies = Movie.filter_and_sort(params[:ratings],params[:column])
+   end
 
   def new
     # default: render 'new' template
@@ -68,6 +64,19 @@ class MoviesController < ApplicationController
     @movie.destroy
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
+  end
+  
+    
+  private
+  def get_settings
+    settings = Movie.default_settings
+    session[:filter] ||= settings[:ratings]
+    session[:sort] ||= settings[:column]
+  end
+  
+  def set_settings
+    session[:filter] = params[:ratings] unless params[:ratings].nil?
+    session[:sort] = params[:column] unless params[:column].nil?
   end
 
 end
