@@ -1812,3 +1812,20 @@ Processing by MoviesController#index as HTML
   [1m[35mMovie Load (0.5ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" = 'PG-13'  ORDER BY release_date
   Rendered movies/index.html.haml within layouts/application (3.8ms)
 Completed 200 OK in 22ms (Views: 20.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 73.239.192.5 at 2017-07-12 07:06:54 +0000
+
+
+Started GET "/movies" for 73.239.192.5 at 2017-07-12 07:06:55 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://my-workspace-bhaktibavkar.c9users.io/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1
+Completed 302 Found in 45ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1" for 73.239.192.5 at 2017-07-12 07:06:55 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}}
+  [1m[36mMovie Load (0.5ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (37.3ms)
+Completed 200 OK in 396ms (Views: 389.3ms | ActiveRecord: 5.0ms)
