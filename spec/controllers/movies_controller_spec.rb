@@ -167,11 +167,12 @@ describe MoviesController do
             @fake_results = [double('movie1'),double('movie2')]
         end
         it 'calls model method to find list of movies with given sorting and filter contraints' do
-            expect(Movie).to receive_message_chain(:where,:order).and_return(@fake_results)
+            #expect(Movie).to receive_message_chain(:where,:order).and_return(@fake_results)
+            expect(Movie).to receive(:filter_and_sort).and_return(@fake_results)
             get :index
         end
         it 'makes result available to view' do
-            allow(Movie).to receive_message_chain(:where,:order).and_return(@fake_results)
+            allow(Movie).to receive(:filter_and_sort).and_return(@fake_results)
             get :index
             expect(assigns(:movies)).to eq(@fake_results)
         end

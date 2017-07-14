@@ -52,11 +52,13 @@ Scenario: Create new movie
   Then I should be on the create new movie page
   And I fill new movie details for "Independance Day"
   And I press "Save Changes"
-  Then I should see "Independance Day was successfully created."
+  Then  I should be on the home page
+  And I should see "Independance Day was successfully created."
   
 Scenario: Delete existing movie
   Given I am on the details page for "Alien"
   And I press "Delete"
-  Then I should see "Movie 'Alien' deleted." 
+  Then  I should be on the home page
+  And I should see "Movie 'Alien' deleted." 
   
 
