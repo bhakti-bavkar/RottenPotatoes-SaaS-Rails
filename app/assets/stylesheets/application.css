@@ -10,6 +10,11 @@ div#main {
   margin: 0;
   padding: 0 20px 20px;
 }
+div#login {
+  margin: 0;
+  padding: 0 20px 20px;
+  text-align: right;
+}
 a {
   background: transparent;
   color: maroon;

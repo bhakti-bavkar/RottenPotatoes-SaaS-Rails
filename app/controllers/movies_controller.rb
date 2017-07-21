@@ -1,7 +1,10 @@
 class MoviesController < ApplicationController
   
-  before_action :get_settings
-  after_action :set_settings
+  before_action :get_settings, :only => :index
+  before_action :require_login, :only => [:new, :edit, :destroy]
+  
+  after_action :set_settings, :only => :index
+  #skip_before_action :set_current_user, :only => [:index]
 
   def movie_params
     params.require(:movie).permit(:title, :rating, :description, :release_date, :director)
@@ -86,5 +89,10 @@ class MoviesController < ApplicationController
     session[:filter] = params[:ratings] unless params[:ratings].nil?
     session[:sort] = params[:column] unless params[:column].nil?
   end
-
+  
+  def require_login
+    unless @current_user
+    redirect_to login_path, :flash => { :warning => "You must be logged in to access this section"} 
+    end
+  end
 end

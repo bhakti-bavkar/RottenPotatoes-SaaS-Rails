@@ -5,3 +5,6 @@
 = form_tag movie_path(@movie), :method => :put do
  = render :partial => 'movie_form'
  = submit_tag 'Update Movie Info'
+ 
+= link_to 'Back to movie', movie_path
+

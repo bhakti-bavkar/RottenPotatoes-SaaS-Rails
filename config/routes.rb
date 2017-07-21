@@ -7,4 +7,11 @@ Rottenpotatoes::Application.routes.draw do
     end
   end
   
+  get  'auth/:provider/callback' => 'sessions#create'
+  post 'logout' => 'sessions#destroy'
+  get  'auth/failure' => 'sessions#failure'
+  get 'auth/twitter'#, :as => 'login'
+  get 'auth/facebook'#, :as => 'login'
+  get 'login' => 'sessions#login'
+  
 end
