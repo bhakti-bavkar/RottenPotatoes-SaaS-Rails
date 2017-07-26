@@ -1,3 +1,5 @@
+require 'cucumber/rspec/doubles'
+
 Given(/^the following movies exist:$/) do |movies_table|
     movies_table.hashes.each {|movie| Movie.create!(movie)}
 end
@@ -50,4 +52,15 @@ When /I fill new movie details for (.*)/ do |title|
         And I select "G" from "Rating"
         And I fill in "Director" with "Roland Emmerich"
     }
+end
+
+When /I search for (.*) from TMDb/ do |title|
+  #TMDb request is stubbed in ./features/support/webmock.rb
+   body = File.read "./features/support/TMDb_response.json"
+  stub_request(:any, /api.themoviedb.org/).to_return(:status => 200, :body => body, :headers => {})
+
+  steps %Q{
+    When I fill in "Search Terms" with #{title}
+    And I press "Search TMDb"
+  }
 end

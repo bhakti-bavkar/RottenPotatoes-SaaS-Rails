@@ -5,13 +5,14 @@ class Movie < ActiveRecord::Base
   #  self.title = self.title.split(/\s+/).map(&:downcase).
   #    map(&:capitalize).join(' ')
   #end
-  
+  @@grandfathered_date = Date.parse('1 Nov 1968')
+
+  class InvalidKeyError < RuntimeError ; end
+
   def self.all_ratings
     ['G','PG','PG-13','R','NC-17']
   end
   
-  @@grandfathered_date = Date.parse('1 Nov 1968')
-
   validates :title, :presence => true
   validates :release_date, :presence => true
   validate :released_1930_or_later # uses custom validator below
@@ -28,6 +29,15 @@ class Movie < ActiveRecord::Base
   
   def self.search_movies_by_director(director)
     Movie.where(:director => director)
+  end
+  
+  def self.find_in_tmdb(title)
+    begin
+      Tmdb::Api.key(ENV["TMDB_API_KEY"])
+      Tmdb::Movie.find(title)
+    rescue Tmdb::InvalidApiKeyError
+      raise Movie::InvalidKeyError, 'Invalid API key'
+    end
   end
 
   def self.default_settings
@@ -47,5 +57,7 @@ class Movie < ActiveRecord::Base
           return Movie.where(:rating => filter.keys).order(sort)
       end
   end
-      
+  
+  private
+  
 end

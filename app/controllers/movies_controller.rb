@@ -24,6 +24,13 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id]) # look up movie by unique ID
     # will render app/views/movies/show.<extension> by default
   end
+  
+  def search_tmdb
+    @movies = Movie.find_in_tmdb(params[:search_terms])
+    if @movies.blank?
+      redirect_to movies_path, :flash => {:notice => "'#{params[:search_terms]}' was not found in TMDb."}
+    end
+  end
 
   def index
     if params[:column].nil? and params[:ratings].nil?
@@ -39,11 +46,14 @@ class MoviesController < ApplicationController
     @title_header = 'hilite' if params[:column] == 'title'
     @release_date_header = 'hilite' if params[:column] == 'release_date'
     @movies = Movie.filter_and_sort(params[:ratings],params[:column])
-   end
+  end
 
   def new
-    # default: render 'new' template
     @movie = Movie.new
+    unless params.blank?
+      @movie.title = params[:title]
+      @movie.release_date = params[:release_date]
+    end
   end
 
   def create

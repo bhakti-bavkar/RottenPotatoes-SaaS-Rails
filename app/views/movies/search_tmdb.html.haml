@@ -1,0 +1,21 @@
+%h1 Tmdb Search Result
+
+%table#movies
+  %thead
+    %tr
+      %th Movie Title
+      %th Release Date
+      %th Add
+  %tbody
+    - @movies.each do |movie|
+      %tr
+        %td= movie.title
+        %td= movie.release_date
+        %td= link_to "Add this movie to RottenPotatoes", new_movie_path(:title => movie.title,:release_date => movie.release_date)
+        
+= link_to 'Back to movie list', movies_path
+
+  
+      
+
+ 

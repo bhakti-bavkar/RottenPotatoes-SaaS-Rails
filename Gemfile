@@ -17,6 +17,7 @@ group :development, :test do
 #  gem 'rspec-rails', '3.3.2'
   gem 'ZenTest', '4.11.0'
   gem "factory_girl_rails", "~> 4.0"
+  gem 'webmock'
 end
 
 group :test do
@@ -40,8 +41,7 @@ gem 'uglifier', '>= 2.7.1'
 gem 'jquery-rails'
 gem 'haml'
 gem 'omniauth-twitter'
-#gem 'omniauth-facebook'
-#gem 'omniauth-google'
+gem 'themoviedb'
 # Use unicorn as the web server
 # gem 'unicorn'
 

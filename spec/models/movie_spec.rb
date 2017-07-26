@@ -15,4 +15,20 @@ describe Movie do
             expect(Movie.search_movies_by_director('George Lucas')).not_to eq (@movie3)
         end
     end
+    describe 'Searching movie in TMDb' do
+        context 'with valid API key' do
+            it 'fetches valid search result' do
+                expect(Tmdb::Movie).to receive(:find).with('test_movie')
+                expect { Movie.find_in_tmdb('test_movie') }.not_to raise_error
+             end    
+        end
+        context 'with invalid API key' do
+            it 'raises an InvalidKeyError' do
+                expect(Tmdb::Movie).to receive(:find).and_raise(Tmdb::InvalidApiKeyError)
+                expect { Movie.find_in_tmdb('test_movie') }.
+                to raise_error(Movie::InvalidKeyError)
+            end
+            
+        end
+    end
 end
