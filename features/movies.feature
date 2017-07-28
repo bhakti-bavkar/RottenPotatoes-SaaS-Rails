@@ -13,11 +13,6 @@ Background: movies in database
   | Alien        | R      |              |   1979-05-25 |
   | THX-1138     | R      | George Lucas |   1971-03-11 |
  
-Scenario: add director to existing movie
-  When I go to the edit page for "Alien"
-  And  I fill in "Director" with "Ridley Scott"
-  And  I press "Update Movie Info"
-  Then the director of "Alien" should be "Ridley Scott"
  
 Scenario: find movie with same director
   Given I am on the details page for "Star Wars"
@@ -46,19 +41,6 @@ Scenario: Filter out movies with 'PG' or 'R' ratings
   Then I should see movies with checked ratings
   But I should not see movies with unchecked ratings
   
-Scenario: Create new movie
-  Given I am on the RottenPotatoes home page
-  And I follow "Add new movie"
-  Then I should be on the create new movie page
-  And I fill new movie details for "Independance Day"
-  And I press "Save Changes"
-  Then  I should be on the home page
-  And I should see "Independance Day was successfully created."
-  
-Scenario: Delete existing movie
-  Given I am on the details page for "Alien"
-  And I press "Delete"
-  Then  I should be on the home page
-  And I should see "Movie 'Alien' deleted." 
+ 
   
 

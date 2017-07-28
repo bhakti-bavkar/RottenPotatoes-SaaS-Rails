@@ -15,6 +15,6 @@ Scenario: Try to add nonexistent movie (sad path)
 
 Scenario: Try to add existing movie (happy path)
   When I search for "Inception" from TMDb
-  Then I should be on the create new movie page
+  Then I should be on the TMDb Search Result page 
   And I should not see "not found"
   And I should see "Inception"

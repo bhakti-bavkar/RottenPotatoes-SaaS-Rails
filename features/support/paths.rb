@@ -25,6 +25,10 @@ module NavigationHelpers
       movie_path(Movie.find_by_title($1))
     when /^the Similar Movies page for "(.*)"$/
       search_movie_path(Movie.find_by_title($1))
+    when /^the login page$/
+      login_path
+    when /^the TMDb Search Result page$/
+      search_tmdb_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

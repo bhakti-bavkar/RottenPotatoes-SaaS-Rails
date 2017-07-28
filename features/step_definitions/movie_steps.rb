@@ -55,12 +55,19 @@ When /I fill new movie details for (.*)/ do |title|
 end
 
 When /I search for (.*) from TMDb/ do |title|
-  #TMDb request is stubbed in ./features/support/webmock.rb
-   body = File.read "./features/support/TMDb_response.json"
+  if title.match(/Inception/)
+    body = File.read "./features/support/TMDb_response.json"
+  else
+    body = File.read "./features/support/TMDb_empty.json"
+  end
   stub_request(:any, /api.themoviedb.org/).to_return(:status => 200, :body => body, :headers => {})
-
   steps %Q{
     When I fill in "Search Terms" with #{title}
     And I press "Search TMDb"
   }
 end
+
+When /I am logged in with twitter/ do
+  visit "/auth/twitter"
+end
+

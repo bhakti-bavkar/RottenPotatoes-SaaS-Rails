@@ -8,6 +8,8 @@ SimpleCov.start 'rails'
 # files.
 
 require 'cucumber/rails'
+require 'factory_girl_rails'
+require 'webmock/cucumber'
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
@@ -60,4 +62,19 @@ end
 Cucumber::Rails::Database.javascript_strategy = :truncation
 #FactoryGirl
 World(FactoryGirl::Syntax::Methods)
+#OmniAuth testing
+Before('@omniauth_test,@transaction') do
+  OmniAuth.config.test_mode = true
+  Capybara.default_host = 'http://example.com'
+  # the symbol passed to mock_auth is the same as the name of the provider set up in the initializer
+  OmniAuth.config.mock_auth[:twitter] = {
+      "provider" =>"twitter",
+      "uid"=> "1234",
+      "info" => {"email"=>"test@xxxx.com","name" =>"Twitter User"}
+  }
+  Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
+end
 
+After('@omniauth_test') do
+  OmniAuth.config.test_mode = false
+end
